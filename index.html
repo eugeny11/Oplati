@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+    <title>Plati Podpisku - Main</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__upper">
+            <div class="container">
+                <div class="header__upper__content">
+                    <img class="header__upper__logo" src="images/logo.svg"  alt="logo">
+                    <div class="header__upper__item">
+                        <img class="upper__item__img" src="images/icons/icon_stars.svg" alt="stars rating">
+                        <div class="upper__item__info">
+                            <p class="upper__item__title">
+                                Наш рейтинг 5.0 из 5.0
+                            </p>
+                            <small class="upper__item__text">
+                                на основе 1 500+ отзывов в Яндексе
+                            </small>
+                        </div>
+                    </div>
+                    <div class="header__upper__item">
+                        <img class="upper__item__img" src="images/icons/icon_time.svg" alt="stars rating">
+                        <div class="upper__item__info">
+                            <p class="upper__item__title">
+                                Работаем с 9:00 до 22:00
+                            </p>
+                            <small class="upper__item__text">
+                                (по мск)
+                            </small>
+                        </div>
+                    </div>
+                    <button class="header__upper__button">
+                        Создать заявку
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="header__bottom">
+            <div class="container">
+                <div class="header__bottom__content">
+                    <ul class="header__bottom__menu">
+                        <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Сервисы</a></li>
+                        <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Как оплатить</a></li>
+                        <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Тарифы</a></li>
+                        <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Отзывы</a></li>
+                        <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Статьи и инструкции</a></li>
+                        <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Вопрос- ответ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="hero">
+            <div class="hero__container">
+                <div class="container">
+                    <div class="hero__content">
+                        <div class="hero__content__header">
+                            <div class="content__header__left">
+                                <h1 class="content__header__title">
+                                    Безопасная оплата зарубежных сервисов и подписок в рублях
+                                </h1>
+                                <p class="content__header__text">
+                                    Поможем оплатить любые зарубежные сервисы из России за 15 минут
+                                </p>
+                                <button class="content__header__button">
+                                  <span>Оплатить сервис</span>  
+                                </button>
+                            </div>
+                            <aside class="calculator">
+                                <h2 class="calculator__title">Калькулятор стоимости</h2>
+                                <div class="calculator__rate">
+                                    <div class="calculater__rate__title">Курс валют</div>
+                                    <div class="calculator__rate__currences">
+                                        <div class="calculator__currence__item">
+                                            1$ = 97,97 ₽
+                                        </div>
+                                        <div class="calculator__currence__item">
+                                            1€  = 101,6 ₽
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <form class="calculator__form">
+                            
+                                    <div class="calculator__input-group">
+                                        <label class="calculator__label" for="amount">Стоимость оплаты</label>
+                                        <div class="calculator__field">
+                                            <span class="calculator__currency">₽</span>
+                                            <input class="calculator__input" type="number" id="amount" value="1000" >
+                                            <div class="calculator__selected">
+                                                <img src="images/flags/RU.svg" alt="RUB">
+                                                <span class="calculator__selected-text">RUB</span>
+                                                <img class="calculator__selected-arrow" src="images/icons/arrow.svg" alt="arrow">
+                                                <ul class="calculator__dropdown">    
+                                                   <li data-currency="RUB" class="calculator__dropdown__item">
+                                                        <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUS">
+                                                        <span class="calculator__selected-text">RUB</span>
+                                                   </li>
+                                                   <li data-currency="RUB" class="calculator__dropdown__item">
+                                                        <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                        <span class="calculator__selected-text">RUB</span>
+                                                    </li>
+                                                    <li data-currency="RUB" class="calculator__dropdown__item">
+                                                        <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                        <span class="calculator__selected-text">RUB</span>
+                                                    </li>
+                                                    <li data-currency="RUB" class="calculator__dropdown__item">
+                                                        <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                        <span class="calculator__selected-text">RUB</span>
+                                                    </li>
+                                                    <li data-currency="RUB" class="calculator__dropdown__item">
+                                                        <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                        <span class="calculator__selected-text">RUB</span>
+                                                    </li>
+                                                    <li data-currency="RUB" class="calculator__dropdown__item">
+                                                        <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                        <span class="calculator__selected-text">RUB</span>
+                                                    </li>
+                                                    <li data-currency="RUB" class="calculator__dropdown__item">
+                                                        <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                        <span class="calculator__selected-text">RUB</span>
+                                                    </li>
+                                                    <li data-currency="RUB" class="calculator__dropdown__item">
+                                                        <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                        <span class="calculator__selected-text">RUB</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                        
+                                        <div class="calculator__final">
+                                            <label class="calculator__label" for="total">Итоговая стоимость</label>
+                                            <div class="calculator__field">
+                                                <span class="calculator__currency">₽</span>
+                                                <input class="calculator__input" type="number" id="total" value="1200"  readonly>
+                                                <div class="calculator__selected">
+                                                    <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                    <span class="calculator__selected-text">RUB</span>
+                                                    <img class="calculator__selected-arrow" src="images/icons/arrow.svg" alt="arrow">
+                                                    <ul class="calculator__dropdown">
+                                                        <li data-currency="RUB" class="calculator__dropdown__item">
+                                                             <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                             <span class="calculator__selected-text">RUB</span>
+                                                        </li>
+                                                        <li data-currency="RUB" class="calculator__dropdown__item">
+                                                             <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                             <span class="calculator__selected-text">RUB</span>
+                                                         </li>
+                                                         <li data-currency="RUB" class="calculator__dropdown__item">
+                                                             <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                             <span class="calculator__selected-text">RUB</span>
+                                                         </li>
+                                                         <li data-currency="RUB" class="calculator__dropdown__item">
+                                                             <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                             <span class="calculator__selected-text">RUB</span>
+                                                         </li>
+                                                         <li data-currency="RUB" class="calculator__dropdown__item">
+                                                             <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                             <span class="calculator__selected-text">RUB</span>
+                                                         </li>
+                                                         <li data-currency="RUB" class="calculator__dropdown__item">
+                                                             <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                             <span class="calculator__selected-text">RUB</span>
+                                                         </li>
+                                                         <li data-currency="RUB" class="calculator__dropdown__item">
+                                                             <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                             <span class="calculator__selected-text">RUB</span>
+                                                         </li>
+                                                         <li data-currency="RUB" class="calculator__dropdown__item">
+                                                             <img class="calculator__selected-flag" src="images/flags/RU.svg" alt="RUB">
+                                                             <span class="calculator__selected-text">RUB</span>
+                                                         </li>
+                                                     </ul>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </form>
+                            </aside>
+                        </div>
+                        <div class="hero__benefits">  
+                            <div class="benefits__item">
+                                <img src="images/icons/icon_refund.svg" alt="icon">
+                                <div class="benefits__item__content">
+                                    <div class="benefits__item__title">100% гарантия</div>
+                                    <div class="benefits__item__text">возврата средств</div>
+                                </div>
+                            </div>
+                            <div class="benefits__item">
+                                <img src="images/icons/icon_safe.svg" alt="icon">
+                                <div class="benefits__item__content">
+                                    <div class="benefits__item__title">Полная безопасность</div>
+                                    <div class="benefits__item__text">ваших данных</div>
+                                </div>
+                            </div>
+                            <div class="benefits__item">
+                                <img src="images/icons/icon_low_comission.svg" alt="icon">
+                                <div class="benefits__item__content">
+                                    <div class="benefits__item__title">Низкие комиссии</div>
+                                    <div class="benefits__item__text">найдете дешевле, <br> сделаем скидку</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+        </section>
+        <section class="services">
+            <div class="container">
+                <div class="services__content">
+                    <a href="#">
+                        <div class="services__button">Сервисы</div>
+                    </a>
+                    
+                    <div class="services__content__row">
+                        <h2 class="services__title">
+                            Продолжайте пользоваться нужными сервисами без ограничений
+                        </h2>
+                        <p class="services__text">Можем оплатить даже авиабилеты, бронь отеля,любой профессиональный или развлекательный ресурс</p>
+                    </div>
+                    <div class="services__icons">
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                        <div class="services__icon">
+                            <img src="images/icons/service.svg" alt="service icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <section class="secure__payment">
+                <div class="secure__payment__content">
+                    <h2 class="secure__payment__title">Нужно быстро и безопасно оплатить зарубежный сервис?</h2>
+                    <p class="secure__payment__text">Просто напишите нам в Telegram</p>
+                    <div class="secure__payment__social">
+                        <a href="#"><img src="images/icons/telegram.svg" alt="telegram"></a>  
+                    </div>
+                </div>
+            </section>
+            <section class="choose">
+                <a href="#">
+                    <button class="choose__button">
+                        Преимущества
+                    </button>
+                </a>
+                <h2 class="choose__title">
+                    Выберите сервис об остальном мы позаботимся
+                </h2>
+                <div class="choose__items">
+                    <a href="#">
+                        <div class="choose__item">
+                            <img src="images/icons/icon_refund.svg" alt="icon refund">
+                            
+                                <h3 class="choose__item__title">
+                                    При любой спорной ситуации — вернем деньги
+                                </h3>
+                           
+                            <p class="choose__item__text">
+                                Если платёж не прошёл по каким‑либо причинам, вернём вам всю сумму в этот же день
+                            </p>
+                        </div>
+                    </a>
+                    
+                        <a href="#">
+                            <div class="choose__item">
+                                <img src="images/icons/icon_time.svg" alt="icon time">
+                                
+                                    <h3 class="choose__item__title">
+                                        Высокая скорость оплаты и ответов
+                                    </h3>
+                                
+                                <p class="choose__item__text">
+                                    Время ответа специалиста ~ 2 минуты, время проведения оплаты ~ 15 минут
+                                </p>
+                            </div>
+                        </a>
+                        
+                    <a href="#">
+                        <div class="choose__item">
+                            <img src="images/icons/icon_safe.svg" alt="icon safe">
+                            
+                                <h3 class="choose__item__title">
+                                    Безопасные транзакции
+                                </h3>
+                            
+                           
+                            <p class="choose__item__text">
+                                Официальные зарубежные карты и безопасные оплаты, подтверждённые чеками
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#"> 
+                        <div class="choose__item">
+                            <img src="images/icons/icon_low_comission.svg" alt="icon comission">
+                        
+                                <h3 class="choose__item__title">
+                                Гарантия самой низкой комиссии
+                                </h3>
+                        
+                        
+                            <p class="choose__item__text">
+                                Если вы нашли цену ниже, сделаем скидку от предложения конкурента
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section class="stages">
+                <div class="stages__header">
+                    <div class="stages__left">
+                        <a href="#">
+                            <div class="stages__button">
+                                Этапы работ
+                            </div>
+                        </a>
+                        <h2 class="stages__title">
+                            Работаем прозрачно и безопасно
+                        </h2>
+                    </div>
+                    <div class="stages__right">
+                        <p class="stages__right__text">
+                            Теперь, чтобы оплатить любой сервис, платформу или подписку нужен только Telegram
+                        </p>
+                        <div class="stages__right__button">
+                            Оплатить сервис
+                        </div>
+                    </div>
+                </div>
+                <div class="stages__content">
+                    <div class="stages__content__item">
+                        <div class="content__item__numbering">
+                            <div class="content__item__number">
+                                <div class="content__item__button">1 этап</div>
+                            </div>
+                            <div class="content__item__img"></div>
+                        </div>
+                        <div class="content__item__bid">
+                            <div class="bid__title">
+                                Заявка на оплату
+                            </div>
+                            <div class="bid__text">
+                                <p>
+                                    Просто пишите нам в Telegram на официальный аккаунт @OplataZabugor
+                                </p>
+                                <p>
+                                    Отвечаем на все вопросы, рассчитываем комиссию и подбираем удобный способ оплаты
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content__item__stage__img">
+                            <img src="images/stages/image_1_stage.svg" alt="stage 1">
+                        </div>
+                    </div>
+                    <div class="stages__content__item">
+                        <div class="content__item__numbering">
+                            <div class="content__item__number">
+                                <div class="content__item__button">2 этап</div>
+                            </div>
+                            <div class="content__item__img"></div>
+                        </div>
+                        <div class="content__item__bid">
+                            <div class="bid__title">
+                                Оплата наших услуг
+                            </div>
+                            <div class="bid__text">
+                                <p>
+                                    Вы делаете перевод со своей карты на российскую карту в рублях
+                                </p>
+                                <p>
+                                    Как правило, платеж приходит мгновенно, и мы сразу отчитываемся о получении перевода
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content__item__stage__img">
+                            <img src="images/stages/image_2_stage.svg" alt="stage 1">
+                        </div>
+                    </div>
+                    <div class="stages__content__item">
+                        <div class="content__item__numbering">
+                            <div class="content__item__number">
+                                <div class="content__item__button">3 этап</div>
+                            </div>
+                            <div class="content__item__img"></div>
+                        </div>
+                        <div class="content__item__bid">
+                            <div class="bid__title">
+                                Оплата сервиса
+                            </div>
+                            <div class="bid__text">
+                                <p>
+                                    Мы сразу же оплачиваем нужный сервис или подписку
+                                </p>
+                                <p>
+                                    Проводим оплату через ваш аккаунт или подключаемся к вашему устройству через AnyDesk
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content__item__stage__img">
+                            <img src="images/stages/image_3_stage.svg" alt="stage 1">
+                        </div>
+                    </div>
+                    <div class="stages__content__item">
+                        <div class="content__item__numbering">
+                            <div class="content__item__number">
+                                <div class="content__item__button">4 этап</div>
+                            </div>
+                            <div class="content__item__img"></div>
+                        </div>
+                        <div class="content__item__bid">
+                            <div class="bid__title">
+                                Ура! Всё снова работает
+                            </div>
+                            <div class="bid__text">
+                                <p>
+                                    Вы получаете чек или скриншот об оплате 
+                                    и снова пользуетесь своим сервисом
+                                </p>
+                                <p>
+                                    Весь процесс занимает не более 15 минут
+                                    и полностью безопасен
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content__item__stage__img">
+                            <img src="images/stages/image_4_stage.svg" alt="stage 1">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            OverlayScrollbars(document.querySelectorAll(".calculator__dropdown"), {});
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
