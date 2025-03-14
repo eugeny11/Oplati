@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Проверяем, клик был внутри dropdown
         if (dropdown.contains(event.target)) {
            
             const item = event.target.closest(".calculator__dropdown__item"); 
@@ -50,4 +49,124 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    document.querySelectorAll(".questions__wrapper").forEach(wrapper => {
+        const item = wrapper.querySelector(".questions__item");
+        const content = wrapper.querySelector(".questions__content");
+    
+        item.addEventListener("click", () => {
+            const isActive = wrapper.classList.contains("active");
+    
+            
+            document.querySelectorAll(".questions__wrapper").forEach(w => {
+                w.classList.remove("active");
+                w.querySelector(".questions__item").classList.remove("active");
+                w.querySelector(".questions__content").classList.remove("open");
+                w.querySelector(".questions__content").style.maxHeight = null;
+            });
+    
+            
+            if (isActive) {
+                wrapper.classList.remove("active");
+                item.classList.remove("active");
+                content.classList.remove("open");
+                content.style.maxHeight = null;
+            } else {
+                wrapper.classList.add("active");
+                item.classList.add("active");
+                content.classList.add("open");
+            }
+        });
+    });
+    
+    const track = document.querySelector('.reviews__slider__track');
+    const pointsContainer = document.querySelector('.reviews__slider__points');
+    const items = Array.from(document.querySelectorAll('.reviews__slider__item'));
+    
+    const itemsPerPage = 4; 
+    const totalPages = Math.ceil(items.length / itemsPerPage);
+    let currentIndex = 0; 
+    let isAnimating = false; 
+    let autoSlideTimer; 
+    
+    
+    pointsContainer.innerHTML = ''; 
+    
+    for (let i = 0; i < totalPages; i++) {
+        const point = document.createElement('div');
+        point.classList.add('review__slider__point');
+        if (i === 0) point.classList.add('active');
+        point.dataset.index = i;
+        pointsContainer.appendChild(point);
+    }
+    
+   
+    const points = document.querySelectorAll('.review__slider__point');
+    
+    
+    function updatePoints() {
+        points.forEach(p => p.classList.remove('active'));
+        points[currentIndex].classList.add('active');
+    }
+    
+    
+    points.forEach((point, index) => {
+        point.addEventListener('click', () => {
+            if (index !== currentIndex && !isAnimating) {
+                moveSlider(index);
+                resetAutoSlide(); 
+            }
+        });
+    });
+    
+    function moveSlider(targetIndex) {
+        if (isAnimating) return;
+        isAnimating = true;
+    
+        const steps = targetIndex - currentIndex; 
+        const shift = steps * -100; 
+    
+        track.style.transition = 'transform 0.5s ease-in-out';
+        track.style.transform = `translateX(${shift}%)`;
+    
+        setTimeout(() => {
+            track.style.transition = 'none';
+    
+            if (steps > 0) {
+               
+                for (let i = 0; i < steps * itemsPerPage; i++) {
+                    track.appendChild(track.firstElementChild);
+                }
+            } else {
+               
+                for (let i = 0; i < Math.abs(steps) * itemsPerPage; i++) {
+                    track.prepend(track.lastElementChild);
+                }
+            }
+    
+           
+            track.style.transform = 'translateX(0%)';
+    
+            currentIndex = targetIndex;
+            updatePoints();
+            isAnimating = false;
+        }, 500); 
+    }
+
+    function autoSlide() {
+        autoSlideTimer = setInterval(() => {
+            let nextIndex = (currentIndex + 1) % totalPages; 
+            moveSlider(nextIndex);
+        }, 5000); 
+    }
+    
+    function resetAutoSlide() {
+        clearInterval(autoSlideTimer); 
+        autoSlide(); //
+    }
+    
+    
+    updatePoints();
+    autoSlide();
+
 });

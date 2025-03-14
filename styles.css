@@ -991,14 +991,23 @@ ul, ol {
 
 .reviews__slider{
     width: 100%;
-    display: flex;
+   
     justify-content: space-between;
-    align-items: start;
+   
     margin-top: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.reviews__slider__track{
+    display: flex;
+    align-items: start;
+    gap: 20px;
 }
 
 .reviews__slider__item{
-    max-width: 285px;
+    flex: 0 0 calc(100% / 4 - 20px);
+    max-width: calc(100% / 4 - 20px);
     width: 100%;
     background-color: #f3f3f3;
     border-radius: 20px;
@@ -1006,6 +1015,7 @@ ul, ol {
     flex-direction: column;
     gap: 15px;
     padding: 30px;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .slider__item__screen{
@@ -1255,9 +1265,23 @@ ul, ol {
 .questions__items{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     gap: 20px;
+    width: 100%;
+    max-height: 513px;
+    height: 100%;
     margin-top: 40px;
+}
+
+.questions__wrapper{
+    display: flex;
+    flex-direction: column;
+    max-width: 590px;
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+.questions__wrapper.active{
+    margin-bottom: 0;
 }
 
 .questions__item {
@@ -1265,11 +1289,43 @@ ul, ol {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 590px;
     width: 100%;
     padding: 24.5px 20px;
     border-radius: 15px;
-    margin-bottom: 10px;
+}
+
+.questions__item.active {
+    border: Mixed solid;
+    border-image-source: linear-gradient(288.29deg, #2BC016 -11.11%, #26A96C 21.97%, #387D7A 102.99%);
+    background: linear-gradient(288.29deg, #2BC016 -11.11%, #26A96C 21.97%, #387D7A 102.99%);;
+    color: white;
+}
+
+.questions__arrow {
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.questions__item.active .questions__arrow {
+    transform: rotate(180deg);
+    filter:brightness(10);
+}
+
+.questions__content {
+    max-height: 0;
+    font-size: 16px;
+    color: #656565;
+    overflow: hidden;
+    background: #f3f3f3;
+    padding: 0 20px;
+    width: 100%;
+    transition: max-height 0.3s ease-out, padding 0.3s;
+    border-radius: 0 0 15px 15px;
+}
+
+.questions__content.open {
+    max-height: 120px;
+    padding: 15px 20px;
+    overflow: visible;
 }
 
 .write__us{
@@ -1346,10 +1402,6 @@ ul, ol {
     margin-top: -50px;
     padding-top: 120px;
     padding-bottom: 15px;
-}
-
-.footer .container{
-    
 }
 
 .footer__content{
