@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 w.querySelector(".questions__content").classList.remove("open");
                 w.querySelector(".questions__content").style.maxHeight = null;
             });
-    
             
             if (isActive) {
                 wrapper.classList.remove("active");
@@ -168,5 +167,46 @@ document.addEventListener("DOMContentLoaded", function () {
     
     updatePoints();
     autoSlide();
+
+    document.getElementById("createRequest").addEventListener("click", function() {
+        document.getElementById("requestPopup").style.display = "flex";
+    });
+    
+    document.getElementById("requestClose").addEventListener("click", function() {
+        document.getElementById("requestPopup").style.display = "none";
+    });
+    
+    window.addEventListener("click", function(event) {
+        if (event.target === document.getElementById("requestPopup")) {
+            document.getElementById("requestPopup").style.display = "none";
+        }
+    });
+
+    document.getElementById("calculateComission").addEventListener("click", function() {
+        document.getElementById("comissionPopup").style.display = "flex";
+    });
+    
+    document.getElementById("comissionClose").addEventListener("click", function() {
+        document.getElementById("comissionPopup").style.display = "none";
+    });
+    
+    window.addEventListener("click", function(event) {
+        if (event.target === document.getElementById("comissionPopup")) {
+            document.getElementById("comissionPopup").style.display = "none";
+        }
+    });
+
+    let headerUpper = document.querySelector(".header__upper");
+    let headerBottom = document.querySelector(".header__bottom");
+    let headerUpperHeight = headerUpper.offsetHeight;
+
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > headerUpperHeight) {
+            headerBottom.classList.add("fixed");
+        } else {
+            headerBottom.classList.remove("fixed");
+        }
+    });
+
 
 });

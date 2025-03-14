@@ -39,7 +39,7 @@
                             </small>
                         </div>
                     </div>
-                    <button class="header__upper__button">
+                    <button class="header__upper__button" id="createRequest">
                         Создать заявку
                     </button>
                 </div>
@@ -47,7 +47,7 @@
         </div>
         <div class="header__bottom">
             <div class="container">
-                <div class="header__bottom__content">
+                
                     <ul class="header__bottom__menu">
                         <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Сервисы</a></li>
                         <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Как оплатить</a></li>
@@ -56,7 +56,7 @@
                         <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Статьи и инструкции</a></li>
                         <li class="bottom__menu__item"><a class="bottom__menu__link" href="#">Вопрос- ответ</a></li>
                     </ul>
-                </div>
+                
             </div>
         </div>
     </header>
@@ -376,9 +376,9 @@
                         <p class="stages__right__text">
                             Теперь, чтобы оплатить любой сервис, платформу или подписку нужен только Telegram
                         </p>
-                        <div class="stages__right__button">
+                        <button class="stages__right__button">
                             Оплатить сервис
-                        </div>
+                        </button>
                     </div>
                 </div>
                 <div class="stages__content">
@@ -579,11 +579,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="tariffs__comission__button">
+                    <button class="tariffs__comission__button" id="calculateComission" disabled>
                         <span>
-                            Оплатить сервис
+                            Рассчитать комиссию
                         </span>                       
-                    </div>
+                    </button>
                 </div>
             </div>
         </section>
@@ -1168,6 +1168,46 @@
                 </ul>
             </div>
         </footer>
+        <div class="popup" id="requestPopup">
+            <div class="popup__content">
+                    <img src="images/icons/icon__close.svg" alt="close" id="requestClose">
+                    <div class="popup__content__wrapper">
+                        <div class="popup__title">
+                            Напишите нам в Telegram, чтобы создать заявку на оплату
+                        </div>
+                        <span class="popup__info">
+                            Ответим на все вопросы и поможем безопасно оплатить любой сервис за 15 минут
+                        </span>
+                        <div class="popup__text">
+                            По клику откроется диалог с нашим официальным аккаунтом сервиса @OplataZabugor в вашем браузере или приложении
+                        </div>
+                        <a href="#">
+                            <div class="popup__button">Перейти в telegram</div>
+                        </a> 
+                    </div>
+                   
+            </div>
+        </div>
+        <div class="popup" id="comissionPopup">
+            <div class="popup__content">
+                    <img src="images/icons/icon__close.svg" alt="close" id="comissionClose">
+                    <div class="popup__content__wrapper">
+                        <div class="popup__title">
+                            Чтобы рассчитать точную комиссию, напишите нам в Telegram
+                        </div>
+                        <span class="popup__info">
+                            Ответим на все вопросы и рассчитаем комиссию. Как правило, отвечаем за 2 минуты
+                        </span>
+                        <div class="popup__text">
+                            По клику откроется диалог с нашим официальным аккаунтом сервиса @OplataZabugor в вашем браузере или приложении
+                        </div>
+                        <a href="#">
+                            <div class="popup__button">Перейти в telegram</div>
+                        </a> 
+                    </div>
+                   
+            </div>
+        </div>
     
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
