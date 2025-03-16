@@ -77,6 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    
     
     const track = document.querySelector('.reviews__slider__track');
     const pointsContainer = document.querySelector('.reviews__slider__points');
@@ -168,7 +170,13 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePoints();
     autoSlide();
 
+    
+
     document.getElementById("createRequest").addEventListener("click", function() {
+        document.getElementById("requestPopup").style.display = "flex";
+    });
+
+    document.getElementById("createRequestMob").addEventListener("click", function() {
         document.getElementById("requestPopup").style.display = "flex";
     });
     
@@ -208,5 +216,41 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    const socialBlocks = document.querySelectorAll(".telegram__social");
+    
+        socialBlocks.forEach(block => {
+            console.log(block)
+            const icon = block.querySelector(".telegram__icon");
+    
+            block.addEventListener("mouseenter", function () {
+                icon.src = "images/icons/telegram__green.svg"; 
+                
+            });
+    
+            block.addEventListener("mouseleave", function () {
+                icon.src = "images/icons/telegram.svg"; 
+            });
+        });
+        
+
+    const workSocial = document.querySelector('.work__social');
+    const workIcon = document.querySelector('.work__social__icon');
+
+    workSocial.addEventListener('mouseenter', function(){
+        workIcon.src = "images/icons/telegram__green.svg"; ;
+    });
+    
+    workSocial.addEventListener('mouseleave',function(){
+        workIcon.src = "images/icons/telegram.svg"; 
+    })
+
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.header__mob');
+
+    hamburger.addEventListener('click',function(){
+        console.log('click');
+        this.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+    })
 
 });

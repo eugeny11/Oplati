@@ -42,9 +42,53 @@
                     <button class="header__upper__button" id="createRequest">
                         Создать заявку
                     </button>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    
+                </div> 
+            </div>
+            <div class="header__mob">
+                <button class="header__upper__button header__upper__button--mob" id="createRequestMob">
+                    Создать заявку
+                </button>
+                <ul class="header__mob__menu">
+                    <li class="header__mob__menu__link"><a href="#" class="header__mob__menu__item">Сервисы</a></li>
+                    <li class="header__mob__menu__link"><a href="#" class="header__mob__menu__item">Как оплатить</a></li>
+                    <li class="header__mob__menu__link"><a href="#" class="header__mob__menu__item">Тарифы</a></li>
+                    <li class="header__mob__menu__link"><a href="#" class="header__mob__menu__item">Отзывы</a></li>
+                    <li class="header__mob__menu__link"><a href="#" class="header__mob__menu__item">Статьи и инструкции</a></li>
+                    <li class="header__mob__menu__link"><a href="#" class="header__mob__menu__item">Вопрос- ответ</a></li>
+                </ul>
+                <div class="header__mob__items">
+                    <div class="header__mob__item">
+                        <img src="images/icons/icon_stars.svg" alt="icon stars">
+                        <div class="mob__item__info">
+                            <div class="mob__item__title">
+                                Наш рейтинг 5.0 из 5.0
+                            </div>
+                            <div class="mob__item__text">
+                                на основе 1 500+ отзывов в Яндексе
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__mob__item">
+                        <img src="images/icons/icon_stars.svg" alt="icon stars">
+                        <div class="mob__item__info">
+                            <div class="mob__item__title">
+                                Наш рейтинг 5.0 из 5.0
+                            </div>
+                            <div class="mob__item__text">
+                                на основе 1 500+ отзывов в Яндексе
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        
         <div class="header__bottom">
             <div class="container">
                 
@@ -60,7 +104,9 @@
             </div>
         </div>
     </header>
+    
     <main class="main">
+        
         <section class="hero">
             <div class="hero__container">
                 <div class="container">
@@ -219,6 +265,15 @@
                 </div>
             </div>           
         </section>
+        <div class="benefits__dots">
+            <div class="benefits__dots__items">
+                <div class="benefits__dot__item active"></div>
+                <div class="benefits__dot__item"></div>
+                <div class="benefits__dot__item"></div>
+            </div>
+           
+        </div>
+       
         <section class="services">
             <div class="container">
                 <div class="services__content">
@@ -282,16 +337,20 @@
                 </div>
             </div>
         </section>
-        <div class="container">
+         
+        <div class="container container--secure">
             <section class="secure__payment">
                 <div class="secure__payment__content">
                     <h2 class="secure__payment__title">Нужно быстро и безопасно оплатить зарубежный сервис?</h2>
                     <p class="secure__payment__text">Просто напишите нам в Telegram</p>
-                    <div class="secure__payment__social">
-                        <a href="#"><img src="images/icons/telegram.svg" alt="telegram"></a>  
-                    </div>
+                    <a href="#">
+                        <div class="telegram__social">
+                            <img class="telegram__icon" src="images/icons/telegram.svg" alt="telegram">
+                        </div>
+                    </a>   
                 </div>
             </section>
+            
             <section class="choose">
                 <a href="#">
                     <button class="choose__button">
@@ -302,7 +361,7 @@
                     Выберите сервис об остальном мы позаботимся
                 </h2>
                 <div class="choose__items">
-                    <a href="#">
+                    
                         <div class="choose__item">
                             <img src="images/icons/icon_refund.svg" alt="icon refund">
                             
@@ -314,9 +373,9 @@
                                 Если платёж не прошёл по каким‑либо причинам, вернём вам всю сумму в этот же день
                             </p>
                         </div>
-                    </a>
+                   
                     
-                        <a href="#">
+                        
                             <div class="choose__item">
                                 <img src="images/icons/icon_time.svg" alt="icon time">
                                 
@@ -328,9 +387,9 @@
                                     Время ответа специалиста ~ 2 минуты, время проведения оплаты ~ 15 минут
                                 </p>
                             </div>
-                        </a>
+                      
                         
-                    <a href="#">
+                    
                         <div class="choose__item">
                             <img src="images/icons/icon_safe.svg" alt="icon safe">
                             
@@ -343,8 +402,8 @@
                                 Официальные зарубежные карты и безопасные оплаты, подтверждённые чеками
                             </p>
                         </div>
-                    </a>
-                    <a href="#"> 
+                   
+                    
                         <div class="choose__item">
                             <img src="images/icons/icon_low_comission.svg" alt="icon comission">
                         
@@ -357,9 +416,10 @@
                                 Если вы нашли цену ниже, сделаем скидку от предложения конкурента
                             </p>
                         </div>
-                    </a>
+                    
                 </div>
             </section>
+            
             <section class="stages">
                 <div class="stages__header">
                     <div class="stages__left">
@@ -483,6 +543,7 @@
                 </div>
             </section>
         </div>
+       
         <section class="tariffs">
             <div class="container">
                 <div class="tariffs__content">
@@ -579,7 +640,7 @@
                             </p>
                         </div>
                     </div>
-                    <button class="tariffs__comission__button" id="calculateComission" disabled>
+                    <button class="tariffs__comission__button" id="calculateComission">
                         <span>
                             Рассчитать комиссию
                         </span>                       
@@ -587,6 +648,7 @@
                 </div>
             </div>
         </section>
+       
         <div class="container">
             <section class="reviews">
                 <a href="">
@@ -919,19 +981,26 @@
                 <div class="reviews__slider__points">
                 </div>
             </section>
-            <section class="telegram">
-                <div class="telegram__content">
-                    <h2 class="telegram__title">
-                        Теперь оплата любого сервиса занимает 15 минут и пару сообщений
-                    </h2>
-                    <p class="telegram__text">
-                        Просто напишите нам в Telegram
-                    </p>
-                    <div class="telegram__social">
-                        <img src="images/icons/telegram.svg" alt="telegram">
+              
+            <div class="telegram__wrapper">
+                <section class="telegram">
+                    <div class="telegram__content">
+                        <h2 class="telegram__title">
+                            Теперь оплата любого сервиса занимает 15 минут и пару сообщений
+                        </h2>
+                        <p class="telegram__text">
+                            Просто напишите нам в Telegram
+                        </p>
+                        <a href="#">
+                            <div class="telegram__social">
+                                <img class="telegram__icon" src="images/icons/telegram.svg" alt="telegram">
+                            </div>
+                        </a>                   
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
+            
+          
             <section class="articles">
                 <div class="articles__header">
                     <div class="articles__header__left">
@@ -972,6 +1041,7 @@
                     </div>
                 </div>
             </section>
+             
             <section class="questions">
                 <a href="#">
                     <button class="questions__button">
@@ -1086,7 +1156,9 @@
                     </div>
                 </div>
             </section>
+               
         </div>
+        <
         <section class="write__us">
             <div class="container">
                
@@ -1097,7 +1169,7 @@
                         </h2>
                         <div class="work__hours">
                             <div class="work__social">
-                                <img src="images/icons/telegram.svg" alt="telegram">
+                                <img class="work__social__icon" src="images/icons/telegram.svg" alt="telegram">
                             </div>
                             <p class="work__hours__text">
                                 <span class="work__hours--days">
@@ -1112,7 +1184,9 @@
                 </div>
             
         </section> 
+       
     </main>
+ 
     
         <footer class="footer">
             <div class="container">
@@ -1168,6 +1242,7 @@
                 </ul>
             </div>
         </footer>
+        
         <div class="popup" id="requestPopup">
             <div class="popup__content">
                     <img src="images/icons/icon__close.svg" alt="close" id="requestClose">
@@ -1208,6 +1283,7 @@
                    
             </div>
         </div>
+        
     
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
