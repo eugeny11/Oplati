@@ -260,6 +260,7 @@ ul, ol {
     transition: background 0.3s ease-in-out;
     transition: -webkit-text-fill-color 0.3s ease-in-out;
     display: inline-block;
+    font-weight: 700;
 }
 
 .content__header__button:hover{
@@ -323,6 +324,11 @@ ul, ol {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.calculater__rate__title{
+    font-size: 12px;
+    color: #656565;
 }
 
 .calculator__rate__currences{
@@ -552,6 +558,10 @@ ul, ol {
     transform: scale(1.6);
 }
 
+.services__mobile__button{
+    display: none;
+}
+
 .secure__payment{
     margin-top: 130px;
     position: relative;
@@ -608,8 +618,6 @@ ul, ol {
 .secure__payment__social:hover{
     background: #fff;
 }
-
-
 
 .choose{
     margin-top: 130px;
@@ -784,6 +792,10 @@ ul, ol {
     border-width: 1px 0 1px 0;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.content__item__bid__mobile{
+    display: none;
 }
 
 .content__item__numbering{
@@ -1001,7 +1013,6 @@ ul, ol {
     cursor: pointer;
     text-transform: uppercase;
     font-size: 16px;
-    font-weight: 500;
     border: none;
 }
 
@@ -1015,6 +1026,7 @@ ul, ol {
     transition: background 0.3s ease-in-out;
     transition: -webkit-text-fill-color 0.3s ease-in-out;
     display: inline-block;
+    font-weight: 700;
 }
 
 .tariffs__comission__button:hover{
@@ -1183,6 +1195,7 @@ ul, ol {
     gap: 15px;
     margin: 0 auto;
     margin-top: 40px;
+    overflow: hidden;
 }
 
 .review__slider__point{
@@ -1488,6 +1501,10 @@ ul, ol {
     max-height: 120px;
     padding: 15px 20px;
     overflow: visible;
+}
+
+.questions__mobile__button{
+    display: none;
 }
 
 .write__us{
@@ -2011,6 +2028,7 @@ ul, ol {
 
     .hero__benefits{
         justify-content: center;
+        min-height: 165px;
     }
     .benefits__item {
         display: none; 
@@ -2132,16 +2150,14 @@ ul, ol {
         max-width: 200px;
     }
 
-    .content__item__number {
-        max-width: 160px;
-    }
-
     .content__item__img {
         max-width: 200px;
     }
 
     .content__item__number{
         padding-left: 0;
+        max-width: 175px;
+        width: 100%;
     }
 
     .bid__title {
@@ -2158,13 +2174,15 @@ ul, ol {
 
     .slider__item__name {
         font-size: 12px;
-}
+    }
+
+    .stages__title {
+        font-size: 36px;
+    }
 
     .articles__title{
         font-size: 35px;
     }
-
-    
 
 }
 
@@ -2181,8 +2199,9 @@ ul, ol {
         font-size: 25px;
     }
 
-    .article__text{
+    .articles__text{
         font-size: 16px;
+        margin-top: 15px;
     }
 }
 
@@ -2207,6 +2226,10 @@ ul, ol {
         font-size: 22px;
         font-weight: 500;
     } 
+
+    .secure__payment__text {
+        font-size: 16px;
+    }
 
     .choose{
         margin-top: 60px;
@@ -2253,7 +2276,6 @@ ul, ol {
         flex-direction: column;
         flex-wrap: nowrap;
     }
-
 
     .content__item__numbering {
         flex-direction: column;
@@ -2309,8 +2331,67 @@ ul, ol {
         max-width: 675px;
     }
 
+    .stages__right__button {
+        display: none;
+    }
+     
+    .content__item__numbering{
+        height: 100%;
+    }
+
     .content__item__img{
         height: 378px;
+        display: block;
+        order: 1;
+    }
+
+    .content__item__number {
+        order: 2;
+        margin-top: 15px;
+        height: 40px;
+    }
+
+    .content__item__bid__mobile{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .content__dots{
+        display: flex;
+        gap: 15px;
+        margin: 0 auto;
+    }
+
+    .content__dot{
+        background: #E7E7E7;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+    }
+
+    .content__dot.active{
+        background: linear-gradient(288.29deg, #2BC016 -11.11%, #26A96C 21.97%, #387D7A 102.99%);
+    }
+
+    .stages__right__button--mobile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        width: 100%;
+        background: linear-gradient(288.29deg, #2BC016 -11.11%, #26A96C 21.97%, #387D7A 102.99%);
+        padding-bottom: 18px;
+        padding-top: 18px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        border: none;
+        text-transform: uppercase;
+    }
+
+    .bid__title {
+        margin-bottom: 15px;
     }
 
     .stages__title {
@@ -2348,7 +2429,8 @@ ul, ol {
 
     .tariff__item{
         padding: 20px 15px;
-        max-width: 155px;
+        max-width: 150px;
+        gap: 10px;
     }
 
     .tariff__item__header {
@@ -2387,6 +2469,7 @@ ul, ol {
 
     .header__upper{
         position: relative;
+        border-radius: 0 0 10px 10px;
     }
 
     .header__mob{
@@ -2560,6 +2643,20 @@ ul, ol {
         background-position: center top 180px;
     }
 
+    .secure__payment__content{
+        gap: 10px;
+    }
+
+    .telegram__social{
+        height: 32px;
+        width: 32px;
+        padding: 8px 7px;
+    }
+
+    .telegram__social img{
+        width: 15.2px;
+    }
+
     .choose__title {
         font-size: 30px;
         margin-top: 7px;
@@ -2586,7 +2683,30 @@ ul, ol {
     }
 
     .questions{
-        margin-bottom: 140px;
+        margin-bottom: 20px;
+        height: 490px;
+        overflow: hidden;
+        transition: height 0.5s ease-in-out;
+    }
+
+    .questions.open{
+        height: 1120px;
+    }
+
+    .questions__mobile__button{
+        max-width: 378px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        background: linear-gradient(288.29deg, #2BC016 -11.11%, #26A96C 21.97%, #387D7A 102.99%);
+        border-radius: 10px;
+        color: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: uppercase;
     }
 
     .questions__title {
@@ -2666,11 +2786,62 @@ ul, ol {
     
 }
 
+@media (max-width: 450px){
+
+    .services__mobile__button{
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        display: flex;
+        max-width: 310px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(288.29deg, #2BC016 -11.11%, #26A96C 21.97%, #387D7A 102.99%);
+        border-radius: 10px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .services__icons{
+        max-height: 306px;
+        height: 100%;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .services__icons.open{
+        max-height: 510px;
+    }
+}
+
 @media (max-width: 420px){
 
+    .benefits__item__title {
+        font-size: 20px;
+    }
+
+    .benefits__item__content{
+        gap:5px;
+    }
+
+    .benefits__item {
+        padding: 30px;
+    }
+
+    .benefits__item img{
+        width: 48px;
+        height: 48px;
+    }
+
+    юср
 
     .choose__title {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .choose__item{
@@ -2687,12 +2858,21 @@ ul, ol {
         width: 100%;
     }
 
+    .articles__header__left{
+        align-items: start;
+    }
+
+    .articles__title {
+        font-size: 22px;
+        margin-top: 7px;
+    }
+
     .telegram{
         padding-bottom: 120px;
     }
 
     .telegram::before {
-        background-image:  url('images/tg__cta.svg');
+    background-image:  url('images/tg__cta.svg');
     background-position: left 0px top 120px; 
     background-repeat: no-repeat;
     background-size: contain ; 
@@ -2728,8 +2908,26 @@ ul, ol {
         font-size: 22px;
     }
 
+    .stages__right__text {
+        font-size: 16px;
+    }
+
     .tariffs{
         border-radius: 20px;
+    }
+
+
+
+    .tariffs__title{
+        text-align: left;
+    }
+
+    .tariffs__text{
+        text-align: left;
+    }
+
+    .tariffs__header__left {
+        align-items: start;
     }
 
     .tariffs__content {
@@ -2752,14 +2950,10 @@ ul, ol {
         border-radius: 10px;
     }
 
-    
-
     .footer__bottom__menu{
         justify-content: flex-start;
-    }
-
-    .footer__bottom__menu{
         margin-top: 20px;
+        gap: 10px;
     }
 
     .footer__bottom__menu__item{
@@ -2771,14 +2965,6 @@ ul, ol {
     .services__content {
         padding-left: 10px;
         padding-right: 10px;
-    }
-
-    .services__title {
-        font-size: 18px;
-    }
-
-    .services__text {
-        font-size: 14px;
     }
 
     .choose__title {
@@ -2795,4 +2981,11 @@ ul, ol {
         text-align: left;
     }
     
+}
+
+@media (max-width: 370px){
+    .tariff__item{
+        padding: 20px 10px;
+        max-width: 141px;
+    }
 }
