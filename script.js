@@ -317,15 +317,15 @@ function prevBeneSlide() {
     showBeneSlide(prevIndex);
 }
 
-function autoBeneSlide() {
+/* function autoBeneSlide() {
     if (!isBenefitsMobile) return;
-    autoBeneTimer = setInterval(nextBeneSlide, 2000);
+    autoBeneTimer = setInterval(nextBeneSlide, 3000);
 }
 
 function resetAutoBeneSlide() {
     clearInterval(autoBeneTimer);
     autoBeneSlide();
-}
+} */
 
 // Добавляем обработчик кликов по точкам
 dots.forEach((dot, index) => {
@@ -356,7 +356,6 @@ benefitsContainer.addEventListener("touchend", () => {
         } else {
             prevBeneSlide(); // Свайп вправо (предыдущий)
         }
-        resetAutoBeneSlide();
     }
 });
 
@@ -375,16 +374,16 @@ if (isBenefitsMobile) {
 }
 
 // Запускаем автопрокрутку
-autoBeneSlide();
+// autoBeneSlide();
 
 // Перезапуск слайдера при изменении размера экрана
-window.addEventListener("resize", () => {
+/* window.addEventListener("resize", () => {
     if (!isBenefitsMobile) {
         clearInterval(autoBeneTimer);
     } else {
         resetAutoBeneSlide();
     }
-});
+}); */
 
 /* Stages Slider */
 
@@ -442,7 +441,7 @@ function nextStageSlide() {
 }
 
 // Автоматическая прокрутка
-function autoStageSlide() {
+/* function autoStageSlide() {
     if (!isStageMobile) return; // Проверяем перед запуском автопрокрутки
     autoStageTimer = setInterval(nextStageSlide, 4000);
 }
@@ -451,14 +450,14 @@ function autoStageSlide() {
 function resetAutoStageSlide() {
     clearInterval(autoStageTimer);
     autoStageSlide();
-}
+} */
 
 // Обработчики кликов по точкам (Только на мобильных!)
 stagesDots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
         if (!isStageMobile) return;
         showStageSlide(index);
-        resetAutoStageSlide();
+        // resetAutoStageSlide();
     });
 });
 
@@ -503,38 +502,43 @@ if (isStageMobile) {
 }
 
 // Запускаем автопрокрутку
-autoStageSlide();
+// autoStageSlide();
 
 // Слушаем изменение ширины экрана, если `isStageMobile` изменился
-window.addEventListener("resize", () => {
+/* window.addEventListener("resize", () => {
     isStageMobile = window.matchMedia("(max-width: 700px)").matches;
 
     if (!isStageMobile) {
         clearInterval(autoStageTimer); // Отключаем автопрокрутку на десктопе
-    } else {
-        resetAutoStageSlide(); // Если вернулись в мобилку, запускаем снова
-    }
-});
+    } 
+}); */
 
 
     
     /*Popups */
 
+
     document.getElementById("createRequest").addEventListener("click", function() {
+        pauseBenefitsSlider();
         document.getElementById("requestPopup").style.display = "flex";
+        
     });
 
     document.getElementById("createRequestMob").addEventListener("click", function() {
+        pauseBenefitsSlider();
         document.getElementById("requestPopup").style.display = "flex";
+        
     });
     
     document.getElementById("requestClose").addEventListener("click", function() {
         document.getElementById("requestPopup").style.display = "none";
+        setTimeout(resumeBenefitsSlider, 300);
     });
     
     window.addEventListener("click", function(event) {
         if (event.target === document.getElementById("requestPopup")) {
             document.getElementById("requestPopup").style.display = "none";
+            setTimeout(resumeBenefitsSlider, 300);
         }
     });
 
