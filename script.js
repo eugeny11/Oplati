@@ -264,12 +264,14 @@ let currentBeneIndex = 0;
 let autoBeneTimer;
 let isBeneAnimating = false;
 
-function isMobile() {
-    return window.innerWidth <= 1050;
-}
+let isBenefitsMobile = window.matchMedia("(max-width: 1050px)").matches;
+
+window.addEventListener("resize", () => {
+    isBenefitsMobile = window.matchMedia("(max-width: 1050px)").matches;
+});
 
 function showBeneSlide(index) {
-    if (!isMobile() || isBeneAnimating) return;
+    if (!isBenefitsMobile || isBeneAnimating) return;
     isBeneAnimating = true;
 
     let currentItem = benefitsItems[currentBeneIndex];
@@ -316,8 +318,8 @@ function prevBeneSlide() {
 }
 
 function autoBeneSlide() {
-    if (!isMobile()) return;
-    autoBeneTimer = setInterval(nextBeneSlide, 3000);
+    if (!isBenefitsMobile) return;
+    autoBeneTimer = setInterval(nextBeneSlide, 2000);
 }
 
 function resetAutoBeneSlide() {
@@ -335,17 +337,17 @@ dots.forEach((dot, index) => {
 
 // **Добавляем поддержку свайпов (не дублируем переменные)**
 benefitsContainer.addEventListener("touchstart", (e) => {
-    if (!isMobile()) return;
+    if (!isBenefitsMobile) return;
     startX = e.touches[0].clientX;
 });
 
 benefitsContainer.addEventListener("touchmove", (e) => {
-    if (!isMobile()) return;
+    if (!isBenefitsMobile) return;
     endX = e.touches[0].clientX;
 });
 
 benefitsContainer.addEventListener("touchend", () => {
-    if (!isMobile()) return;
+    if (!isBenefitsMobile) return;
     let diff = startX - endX;
 
     if (Math.abs(diff) > 50) { 
@@ -359,23 +361,25 @@ benefitsContainer.addEventListener("touchend", () => {
 });
 
 // Скрываем все, кроме первого
-benefitsItems.forEach((item, index) => {
-    if (index !== 0) {
-        item.style.display = "none";
-        item.style.opacity = "0";
-    } else {
-        item.style.display = "flex";
-        item.style.opacity = "1";
-    }
-    item.style.transform = "translateY(30px)";
-});
+if (isBenefitsMobile) {
+    benefitsItems.forEach((item, index) => {
+        if (index !== 0) {
+            item.style.display = "none";
+            item.style.opacity = "0";
+        } else {
+            item.style.display = "flex";
+            item.style.opacity = "1";
+        }
+        item.style.transform = "translateY(30px)";
+    });
+}
 
 // Запускаем автопрокрутку
 autoBeneSlide();
 
 // Перезапуск слайдера при изменении размера экрана
 window.addEventListener("resize", () => {
-    if (!isMobile()) {
+    if (!isBenefitsMobile) {
         clearInterval(autoBeneTimer);
     } else {
         resetAutoBeneSlide();
@@ -386,13 +390,15 @@ window.addEventListener("resize", () => {
 
 const stagesItems = document.querySelectorAll(".stages__content__item");
 const stagesDots = document.querySelectorAll(".content__dot");
+const stagesContainer = document.querySelector(".stages__content");
 
 let currentStageIndex = 0;
 let autoStageTimer;
 let isStageAnimating = false;
+let isStageMobile = window.matchMedia("(max-width: 700px)").matches; // Проверяем, мобилка или нет
 
 function showStageSlide(index) {
-    if (isStageAnimating) return;
+    if (!isStageMobile || isStageAnimating) return; // Проверяем условие для мобилок
     isStageAnimating = true;
 
     let currentItem = stagesItems[currentStageIndex];
@@ -437,6 +443,7 @@ function nextStageSlide() {
 
 // Автоматическая прокрутка
 function autoStageSlide() {
+    if (!isStageMobile) return; // Проверяем перед запуском автопрокрутки
     autoStageTimer = setInterval(nextStageSlide, 4000);
 }
 
@@ -446,23 +453,28 @@ function resetAutoStageSlide() {
     autoStageSlide();
 }
 
-// Обработчики кликов по точкам
+// Обработчики кликов по точкам (Только на мобильных!)
 stagesDots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
+        if (!isStageMobile) return;
         showStageSlide(index);
         resetAutoStageSlide();
     });
 });
 
-document.querySelector(".stages__content").addEventListener("touchstart", (e) => {
+// Добавляем свайпы (Только на мобильных!)
+stagesContainer.addEventListener("touchstart", (e) => {
+    if (!isStageMobile) return;
     startX = e.touches[0].clientX;
 });
 
-document.querySelector(".stages__content").addEventListener("touchmove", (e) => {
+stagesContainer.addEventListener("touchmove", (e) => {
+    if (!isStageMobile) return;
     endX = e.touches[0].clientX;
 });
 
-document.querySelector(".stages__content").addEventListener("touchend", () => {
+stagesContainer.addEventListener("touchend", () => {
+    if (!isStageMobile) return;
     const diff = startX - endX;
 
     if (Math.abs(diff) > 50) {
@@ -477,19 +489,33 @@ document.querySelector(".stages__content").addEventListener("touchend", () => {
     }
 });
 
-// Скрываем все, кроме первого
-stagesItems.forEach((item, index) => {
-    if (index !== 0) {
-        item.style.display = "none";
-        item.style.opacity = "0";
-    } else {
-        item.style.display = "flex";
-        item.style.opacity = "1";
-    }
-});
+// Скрываем все, кроме первого (Только на мобильных!)
+if (isStageMobile) {
+    stagesItems.forEach((item, index) => {
+        if (index !== 0) {
+            item.style.display = "none";
+            item.style.opacity = "0";
+        } else {
+            item.style.display = "flex";
+            item.style.opacity = "1";
+        }
+    });
+}
 
 // Запускаем автопрокрутку
 autoStageSlide();
+
+// Слушаем изменение ширины экрана, если `isStageMobile` изменился
+window.addEventListener("resize", () => {
+    isStageMobile = window.matchMedia("(max-width: 700px)").matches;
+
+    if (!isStageMobile) {
+        clearInterval(autoStageTimer); // Отключаем автопрокрутку на десктопе
+    } else {
+        resetAutoStageSlide(); // Если вернулись в мобилку, запускаем снова
+    }
+});
+
 
     
     /*Popups */

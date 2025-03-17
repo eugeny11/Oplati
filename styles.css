@@ -2291,6 +2291,10 @@ ul, ol {
         flex-direction: column;
     }
 
+    .stages__content{
+        min-height: 700px;
+    }
+
     .stages__content__item{
         display: none;
         flex-direction: column;
