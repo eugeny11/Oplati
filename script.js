@@ -519,26 +519,21 @@ if (isStageMobile) {
 
 
     document.getElementById("createRequest").addEventListener("click", function() {
-        pauseBenefitsSlider();
         document.getElementById("requestPopup").style.display = "flex";
         
     });
 
     document.getElementById("createRequestMob").addEventListener("click", function() {
-        pauseBenefitsSlider();
         document.getElementById("requestPopup").style.display = "flex";
-        
     });
     
     document.getElementById("requestClose").addEventListener("click", function() {
         document.getElementById("requestPopup").style.display = "none";
-        setTimeout(resumeBenefitsSlider, 300);
     });
     
     window.addEventListener("click", function(event) {
         if (event.target === document.getElementById("requestPopup")) {
             document.getElementById("requestPopup").style.display = "none";
-            setTimeout(resumeBenefitsSlider, 300);
         }
     });
 

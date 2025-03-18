@@ -2138,7 +2138,7 @@ ul, ol {
     }
 
     .content__header__title{
-        font-size: 45px;
+        font-size: 40px;
     }
 
     .content__item__bid {
@@ -2260,6 +2260,16 @@ ul, ol {
 }
 
 @media (max-width: 700px){
+
+    .hero::before{
+        background-image: url('images/bg_first_screen_mobile.svg');
+        top: -15px;
+        max-height: 800px;
+        height: 109%;
+        width: 120%;
+        background-position: center right;
+        background-size: 75% 123%;
+    }
 
     .choose{
         width: 100%;
@@ -2448,6 +2458,16 @@ ul, ol {
 }
 
 @media (max-width: 530px){
+
+    .hero::before {
+        background-image: url(images/bg_first_screen_mobile.svg);
+        top: -40px;
+        max-height: 800px;
+        height: 95%;
+        width: 118%;
+        background-position: center right;
+        background-size: 70% 115%;
+    }
 
     .header__upper{
         padding: 23px 20px;
@@ -2644,7 +2664,11 @@ ul, ol {
     }
 
     .secure__payment::before{
-        background-position: center top 180px;
+        height: 100%;
+        width: 100%;
+        background-image: url('images/bg_cta_mobile.svg'), url('images/image_cta_card_mobile.svg');
+        background-position: center top, left 0px top 35px; 
+        background-size: auto 95%, auto 90%; 
     }
 
     .secure__payment__content{
@@ -2750,9 +2774,18 @@ ul, ol {
     }
 
     .write__us::before{
-        background-position: top 25px right -155px;
+        background-position: left 10px top -30px;
+        background-image: url('images/cta_last_mobile.svg');
         background-size: cover;
     }
+
+    .telegram::before {
+        height: 100%;
+        width: 100%;
+        background-image: url('images/bg_cta_mobile.svg'), url('images/tga_mobile.svg');
+        background-position: center top, left 0px top 35px; 
+        background-size: auto 95%, auto 90%; 
+        }
 
     .write__us {
         border-radius: 20px 20px 0 0;
@@ -2792,6 +2825,8 @@ ul, ol {
 
 @media (max-width: 450px){
 
+   
+
     .services__mobile__button{
         font-size: 16px;
         font-weight: 500;
@@ -2825,6 +2860,14 @@ ul, ol {
 
 @media (max-width: 420px){
 
+    .hero::before {
+        background-image: url(images/bg_first_screen_mobile.svg);
+        top: -55px;
+        height: 95%;
+        width: 137%;
+        background-size: 100% 135%;
+    }
+
     .benefits__item__title {
         font-size: 20px;
     }
@@ -2841,8 +2884,6 @@ ul, ol {
         width: 48px;
         height: 48px;
     }
-
-    юср
 
     .choose__title {
         font-size: 20px;
@@ -2875,13 +2916,6 @@ ul, ol {
         padding-bottom: 120px;
     }
 
-    .telegram::before {
-    background-image:  url('images/tg__cta.svg');
-    background-position: left 0px top 120px; 
-    background-repeat: no-repeat;
-    background-size: contain ; 
-    }
-
     .popup__content__wrapper{
         gap: 15px;
         margin-top: 5px;
@@ -2893,7 +2927,7 @@ ul, ol {
     }
 
     .popup#requestPopup{
-        top: 0;
+        top: -140px;
     }
 
     .popup__title{
@@ -2919,8 +2953,6 @@ ul, ol {
     .tariffs{
         border-radius: 20px;
     }
-
-
 
     .tariffs__title{
         text-align: left;
@@ -2963,9 +2995,19 @@ ul, ol {
     .footer__bottom__menu__item{
         margin-right: 10px;
     }
+
+    .secure__payment::before {
+        background-size: auto 88%, auto 90%;
+    }
+
+    .telegram::before {
+        background-position: center top, left 0px top 55px;
+        background-size: auto 86%, auto 85%;
+    }
 }
 
 @media (max-width: 370px){
+
     .services__content {
         padding-left: 10px;
         padding-right: 10px;
@@ -2984,12 +3026,10 @@ ul, ol {
     .tariffs__title{
         text-align: left;
     }
-    
-}
 
-@media (max-width: 370px){
     .tariff__item{
         padding: 20px 10px;
         max-width: 141px;
     }
+    
 }
