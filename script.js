@@ -149,6 +149,11 @@ document.addEventListener("DOMContentLoaded", function () {
         loadMoreButton.addEventListener("click", function () {
             if (!isExpanded) {
                 questions.forEach(question => smoothShow(question));
+
+                setTimeout(() => {
+                    loadMoreButton.scrollIntoView({ behavior: "smooth", block: "end" });
+                }, 600);
+                
                 loadMoreButton.textContent = "Скрыть";
                 animateButtonIn(loadMoreButton);
             } else {
