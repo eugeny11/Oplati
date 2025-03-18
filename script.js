@@ -54,77 +54,133 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* Questions section */
 
-    const questionsBlock = document.querySelector(".questions");
-
-    document.querySelectorAll(".questions__wrapper").forEach(wrapper => {
-        const item = wrapper.querySelector(".questions__item");
-        const items = document.querySelector(".questions__items");
-        const content = wrapper.querySelector(".questions__content");
-        
+        const questionsWrapper = document.querySelector(".questions__items");
+        const questions = questionsWrapper.querySelectorAll(".questions__wrapper");
+        const loadMoreButton = document.querySelector(".questions__mobile__button");
+        let isExpanded = false;
+        const maxVisible = 4;
     
-        item.addEventListener("click", () => {
-            const isActive = wrapper.classList.contains("active");
+        function applyMobileQuestionsLogic() {
+            if (window.innerWidth <= 530) {
+                // Скрываем все, кроме первых 4
+                questions.forEach((question, index) => {
+                    question.style.display = index < maxVisible ? "block" : "none";
+                });
     
-            document.querySelectorAll(".questions__wrapper").forEach(w => {
-                w.classList.remove("active");
-                w.querySelector(".questions__item").classList.remove("active");
-                w.querySelector(".questions__content").classList.remove("open");
-                w.querySelector(".questions__content").style.maxHeight = null;
-                items.classList.remove("active");
-            });
-    
-            if (!isActive) {
-                wrapper.classList.add("active");
-                items.classList.add("active");
-                item.classList.add("active");
-                content.classList.add("open");
-            
-                const contentHeight = content.scrollHeight;
-            
-                if (window.innerWidth < 1220) {
-                   
-                    const currentItemsHeight = items.offsetHeight;
-                    const currentQuestionsHeight = questionsBlock.offsetHeight;
-            
-                    items.style.maxHeight = `${currentItemsHeight + contentHeight}px`;
-                    questionsBlock.style.height = `${currentQuestionsHeight + contentHeight}px`;
-                }
-            
-                
-                content.style.maxHeight = contentHeight + "px";
+                loadMoreButton.style.display = "flex"; // показываем кнопку
             } else {
-                
-                content.style.maxHeight = null;
-            
-                if (window.innerWidth < 1220) {
-                    const contentHeight = content.scrollHeight;
-                    const currentItemsHeight = items.offsetHeight;
-                    const currentQuestionsHeight = questionsBlock.offsetHeight;
-            
-                    items.style.maxHeight = `${currentItemsHeight - contentHeight}px`;
-                    questionsBlock.style.height = `${currentQuestionsHeight - contentHeight}px`;
-                }
+                // На больших экранах показываем всё
+                questions.forEach(question => {
+                    question.style.display = "block";
+                });
+                loadMoreButton.style.display = "none"; // скрываем кнопку
             }
-            
-        });
-
-        
-    });
-
-    const questionsMobileButton = document.querySelector('.questions__mobile__button')
-
-    questionsMobileButton.addEventListener('click', function () {
-        const currentHeight = parseInt(window.getComputedStyle(questionsBlock).height);
-        const fullHeight = questionsBlock.scrollHeight;
-    
-        if (currentHeight < fullHeight) {
-           
-            questionsBlock.style.height = `${fullHeight}px`;
-        } else {
-            
-            questionsBlock.style.height = `490px`; // или ту высоту, которая у тебя по умолчанию
         }
-    });
+    
+        applyMobileQuestionsLogic();
+    
+        function smoothShow(question) {
+            question.style.display = "block";
+            question.style.opacity = "0";
+            question.style.transform = "translateY(-20px)";
+            question.style.transition = "opacity 0.3s ease, transform 0.5s ease";
+        
+            requestAnimationFrame(() => {
+                question.style.opacity = "1";
+                question.style.transform = "translateY(0)";
+            });
+        }
+        
+        function smoothHide(question) {
+            question.style.transition = "opacity 0.3s ease, transform 0.5s ease";
+            question.style.opacity = "0";
+            question.style.transform = "translateY(-50px)";
+        
+            question.addEventListener("transitionend", function handler() {
+                question.style.display = "none";
+                question.removeEventListener("transitionend", handler);
+            });
+        }
+
+        function animateButtonIn(button) {
+            button.style.transition = "opacity 0.3s ease, transform 0.5s ease";
+            button.style.opacity = "0";
+            button.style.transform = "translateY(30px)";
+        
+            requestAnimationFrame(() => {
+                button.style.opacity = "1";
+                button.style.transform = "translateY(0)";
+            });
+        }
+        
+        function animateButtonOut(button, callback) {
+            button.style.transition = "opacity 0.3s ease, transform 0.5s ease";
+            button.style.opacity = "0";
+            button.style.transform = "translateY(30px)";
+        
+            button.addEventListener("transitionend", function handler() {
+                if (callback) callback();
+                button.removeEventListener("transitionend", handler);
+            });
+        }
+        
+        
+        loadMoreButton.addEventListener("click", function () {
+            if (!isExpanded) {
+                questions.forEach(question => smoothShow(question));
+                loadMoreButton.textContent = "Скрыть";
+                animateButtonIn(loadMoreButton);
+            } else {
+                questions.forEach((question, index) => {
+                    const content = question.querySelector(".questions__content");
+                    if (index >= maxVisible && !content.classList.contains("open")) {
+                        smoothHide(question);
+                    }
+                });
+                animateButtonOut(loadMoreButton, () => {
+                    loadMoreButton.textContent = "Загрузить ещё";
+                    animateButtonIn(loadMoreButton);
+                });
+            }
+            isExpanded = !isExpanded;
+        });
+        
+    
+        // Открытие/закрытие вопросов
+        document.querySelectorAll(".questions__wrapper").forEach(wrapper => {
+            const item = wrapper.querySelector(".questions__item");
+            const content = wrapper.querySelector(".questions__content");
+    
+            item.addEventListener("click", () => {
+                const isActive = wrapper.classList.contains("active");
+
+                console.log('click')
+    
+                document.querySelectorAll(".questions__wrapper").forEach(w => {
+                    w.classList.remove("active");
+                    w.querySelector(".questions__item").classList.remove("active");
+                    w.querySelector(".questions__content").classList.remove("open");
+                    w.querySelector(".questions__content").style.maxHeight = null;
+                });
+    
+                if (!isActive) {
+                    wrapper.classList.add("active");
+                    item.classList.add("active");
+                    content.classList.add("open");
+                    let contentHeight = content.scrollHeight;
+                    
+                    if (window.innerWidth < 530) {
+                        contentHeight += 40; // добавляем запас
+                    }
+                
+                    content.style.maxHeight = contentHeight + "px";
+                }
+            });
+        });
+    
+        // Перепроверять при ресайзе
+        window.addEventListener("resize", applyMobileQuestionsLogic);
+    
     
 
  /* Reviews Slider */

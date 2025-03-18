@@ -1410,6 +1410,7 @@ ul, ol {
 
 .questions{
     margin-top: 130px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -1443,10 +1444,10 @@ ul, ol {
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
-    max-height: 700px;
-    height: 100%;
+    height: auto;
     margin-top: 40px;
     transition: max-height 0.6s ease-in-out;
+    height: auto;
 }
 
 .questions__wrapper{
@@ -1469,6 +1470,7 @@ ul, ol {
     width: 100%;
     padding: 24.5px 20px;
     border-radius: 15px;
+    height: auto;
 }
 
 .questions__item.active {
@@ -1500,7 +1502,6 @@ ul, ol {
 }
 
 .questions__content.open {
-    max-height: 120px;
     padding: 15px 20px;
     overflow: visible;
 }
@@ -1683,6 +1684,7 @@ ul, ol {
 .footer__button{
     text-transform: uppercase;
     font-size: 16px;
+    font-weight: 500;
     color: #fff;
     width: 100%;
     padding-top: 18px;
@@ -1900,7 +1902,7 @@ ul, ol {
     }
 
     .questions__wrapper{
-        max-width: 1150px;
+        width: auto;
     }
 
     .questions{
@@ -2668,7 +2670,7 @@ ul, ol {
         width: 100%;
         background-image: url('images/bg_cta_mobile.svg'), url('images/image_cta_card_mobile.svg');
         background-position: center top, left 0px top 35px; 
-        background-size: auto 100%, auto 90%; 
+        background-size: auto 130%, auto 90%; 
     }
 
     .secure__payment__content{
@@ -2710,15 +2712,11 @@ ul, ol {
         width: 49px;
     }
 
-    .questions{
-        margin-bottom: 20px;
-        height: 490px;
-        overflow: hidden;
-    }
-
     .questions__mobile__button{
         max-width: 378px;
         width: 100%;
+        font-size: 16px;
+        font-weight: 500;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -2779,7 +2777,7 @@ ul, ol {
         width: 100%;
         background-image: url('images/bg_cta_mobile.svg'), url('images/tga_mobile.svg');
         background-position: center top, left 100px top 35px; 
-        background-size: auto 165%, auto 90%;
+        background-size: auto 179%, auto 90%;
         }
 
     .write__us {
@@ -2995,7 +2993,7 @@ ul, ol {
 
     .telegram::before {
         background-position: center top, left 0px top 60px;
-        background-size: contain, auto 85%;
+        background-size: auto 108%, auto 85%;
     }
 }
 
