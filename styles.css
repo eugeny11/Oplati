@@ -2522,7 +2522,7 @@ ul, ol {
     .header__mob.open{
         transform: translateX(0);
         opacity: 1;
-        z-index: 2;
+        z-index: 10;
         background: #fff;
     }
 
@@ -2619,6 +2619,10 @@ ul, ol {
         transform: translateY(-10px) rotate(45deg); /* Был -45deg */
     }
 
+    .hero{
+        z-index:0;
+    }
+
     .hero__container {
         padding-left: 20px;
         padding-right: 20px;
@@ -2641,10 +2645,6 @@ ul, ol {
 
     .content__item__bid{
         padding-bottom: 0;
-    }
-
-    .hero{
-        z-index: -1;
     }
 
     .tariffs{
