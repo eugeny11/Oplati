@@ -506,6 +506,10 @@ ul, ol {
     mask-composite: exclude;
 }
 
+.content__item__button{
+    text-transform: uppercase;
+}
+
 .services__button{
     max-width: 116px;
 }
@@ -816,7 +820,7 @@ ul, ol {
 
 .content__item__button{
  padding: 10px 20px;
- max-width: 86px;
+ max-width: 88px;
 }
 
 .content__item__img{
@@ -1359,6 +1363,10 @@ ul, ol {
 .articles__right__button:disabled:hover{
     background: linear-gradient(288.29deg, #2BC016 -11.11%, #26A96C 21.97%, #387D7A 102.99%);
     cursor: not-allowed;
+}
+
+.articles__right__button--mobile {
+    display: none;
 }
 
 
@@ -2547,6 +2555,7 @@ ul, ol {
         align-items: start;
         gap: 30px;
         font-size: 16px;
+        text-transform: uppercase;
         color: #393939;
     }
 
@@ -2712,6 +2721,14 @@ ul, ol {
         width: 49px;
     }
 
+    .articles__right__button{
+        display: none;
+    }
+
+    .articles__right__button--mobile {
+        display: flex;
+    }
+
     .questions__mobile__button{
         max-width: 378px;
         width: 100%;
@@ -2839,14 +2856,10 @@ ul, ol {
 
     .services__icons{
         max-height: 306px;
-        height: 100%;
         overflow: hidden;
         transition: max-height 0.2s ease-in-out;
     }
 
-    .services__icons.open{
-        max-height: 510px;
-    }
 }
 
 @media (max-width: 420px){

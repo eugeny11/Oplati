@@ -81,31 +81,52 @@ document.addEventListener("DOMContentLoaded", function () {
     
         function smoothShow(question) {
             question.style.display = "block";
+            question.style.overflow = "hidden";
+            question.style.maxHeight = "0";
             question.style.opacity = "0";
-            question.style.transform = "translateY(-20px)";
-            question.style.transition = "opacity 0.3s ease, transform 0.5s ease";
+            question.style.transition = "max-height 0.6s ease, opacity 0.6s ease";
         
             requestAnimationFrame(() => {
+                const height = question.scrollHeight;
+                question.style.maxHeight = height + "px";
                 question.style.opacity = "1";
-                question.style.transform = "translateY(0)";
             });
-        }
-        
-        function smoothHide(question) {
-            question.style.transition = "opacity 0.3s ease, transform 0.5s ease";
-            question.style.opacity = "0";
-            question.style.transform = "translateY(-50px)";
         
             question.addEventListener("transitionend", function handler() {
-                question.style.display = "none";
+                question.style.maxHeight = "";
+                question.style.overflow = "";
                 question.removeEventListener("transitionend", handler);
             });
         }
+        
+        
+        function smoothHide(question) {
+            const height = question.scrollHeight;
+            question.style.maxHeight = height + "px";
+            question.style.overflow = "hidden";
+            question.style.transition = "max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease";
+        
+            requestAnimationFrame(() => {
+                question.style.maxHeight = "0";
+                question.style.opacity = "0";
+                question.style.transform = "translateY(-20px)";
+            });
+        
+            question.addEventListener("transitionend", function handler() {
+                question.style.display = "none";
+                question.style.maxHeight = "";
+                question.style.opacity = "";
+                question.style.transform = "";
+                question.style.overflow = "";
+                question.removeEventListener("transitionend", handler);
+            });
+        }
+        
 
         function animateButtonIn(button) {
-            button.style.transition = "opacity 0.3s ease, transform 0.5s ease";
+            button.style.transition = "opacity 0.3s ease, transform 0.3s ease";
             button.style.opacity = "0";
-            button.style.transform = "translateY(30px)";
+            button.style.transform = "translateY(5px)";
         
             requestAnimationFrame(() => {
                 button.style.opacity = "1";
@@ -114,9 +135,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         
         function animateButtonOut(button, callback) {
-            button.style.transition = "opacity 0.3s ease, transform 0.5s ease";
+            button.style.transition = "opacity 0.3s ease, transform 0.3s ease";
             button.style.opacity = "0";
-            button.style.transform = "translateY(30px)";
+            button.style.transform = "translateY(10px)";
         
             button.addEventListener("transitionend", function handler() {
                 if (callback) callback();
@@ -133,8 +154,19 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 questions.forEach((question, index) => {
                     const content = question.querySelector(".questions__content");
-                    if (index >= maxVisible && !content.classList.contains("open")) {
-                        smoothHide(question);
+                    if (index >= maxVisible) {
+                        // Закрываем открытый контент
+                        content.classList.remove("open");
+                        content.style.maxHeight = null;
+        
+                        // Снимаем активные классы с айтема
+                        question.classList.remove("active");
+                        question.querySelector(".questions__item").classList.remove("active");
+        
+                        // И только после этого скрываем сам блок
+                        if (!content.classList.contains("open")) {
+                            smoothHide(question);
+                        }
                     }
                 });
                 animateButtonOut(loadMoreButton, () => {
@@ -144,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             isExpanded = !isExpanded;
         });
+        
         
     
         // Открытие/закрытие вопросов
@@ -688,10 +721,23 @@ window.addEventListener("resize", () => {
     })
 
     const servicesIcons = document.querySelector('.services__icons');
-    const servicesMobileButton = document.querySelector('.services__mobile__button')
+    const servicesMobileButton = document.querySelector('.services__mobile__button');
+    let isServicesExpanded = false;
 
-    servicesMobileButton.addEventListener('click',function(){
-        servicesIcons.classList.toggle('open')
-    }) 
+servicesMobileButton.addEventListener('click', function () {
+    if (!isServicesExpanded) {
+        const fullHeight = servicesIcons.scrollHeight;
+        servicesIcons.style.transition = 'max-height 0.2s ease-in-out';
+        servicesIcons.style.maxHeight = fullHeight + 'px';
+        servicesMobileButton.textContent = 'Скрыть';
+    } else {
+        servicesIcons.style.transition = 'max-height 0.2s ease-in-out';
+        servicesIcons.style.maxHeight = '306px'; // исходная высота
+        servicesMobileButton.textContent = 'Показать больше';
+    }
+
+    isServicesExpanded = !isServicesExpanded;
+});
+
 
 });
