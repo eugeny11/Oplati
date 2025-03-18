@@ -2990,12 +2990,12 @@ ul, ol {
     }
 
     .secure__payment::before {
-        background-size: auto 88%, auto 90%;
+        background-size: contain, auto 90%;
     }
 
     .telegram::before {
         background-position: center top, left 0px top 60px;
-        background-size: auto 85%, auto 85%;
+        background-size: contain, auto 85%;
     }
 }
 
