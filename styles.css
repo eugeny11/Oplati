@@ -2247,6 +2247,11 @@ ul, ol {
         margin-top: 60px;
     }
 
+    .stages__content__item:hover .content__item__img {
+        transform: none !important;
+        transition: none !important;
+    }
+
     .reviews{
         margin-top: 60px;
     }
