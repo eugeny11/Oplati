@@ -144,7 +144,6 @@ ul, ol {
     background-color: #f3f3f3;
     padding-top: 25px;
     padding-bottom: 25px;
-    border-radius: 0 0 20px 20px; 
     width: 100%;
     position: relative; 
     transition: all 0.3s ease-in-out;
@@ -159,7 +158,7 @@ ul, ol {
 }
 
 .header__bottom__menu{
-    font-size: 14px;
+    font-size: 16px;
     color: #393939;
     display: flex;
     justify-content: space-evenly;
@@ -477,21 +476,21 @@ ul, ol {
 }
 
 .services__button, .choose__button, .stages__button, .content__item__button, .reviews__button, .articles__button,
-.questions__button{
+.questions__button {
     padding: 10px 27px;
     border-radius: 50px;
     width: 100%;
     font-size: 14px;
     text-align: center;
-    border: 1px solid transparent;
+    border: 1px solid #26A96C; 
     background: linear-gradient(140deg, #387D7A 0%, #26A96C 80%, #2BC016 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
-    cursor: pointer;
 }
 
+/*
 .services__button::before, .choose__button::before, .stages__button::before, .content__item__button::before, .reviews__button::before,
 .articles__button::before, .questions__button::before {
     content: "";
@@ -505,6 +504,7 @@ ul, ol {
     -webkit-mask-composite: xor;
     mask-composite: exclude;
 }
+    */
 
 .content__item__button{
     text-transform: uppercase;

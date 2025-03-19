@@ -62,18 +62,18 @@ document.addEventListener("DOMContentLoaded", function () {
     
         function applyMobileQuestionsLogic() {
             if (window.innerWidth <= 530) {
-                // Скрываем все, кроме первых 4
+
                 questions.forEach((question, index) => {
                     question.style.display = index < maxVisible ? "block" : "none";
                 });
     
-                loadMoreButton.style.display = "flex"; // показываем кнопку
+                loadMoreButton.style.display = "flex"; 
             } else {
-                // На больших экранах показываем всё
+               
                 questions.forEach(question => {
                     question.style.display = "block";
                 });
-                loadMoreButton.style.display = "none"; // скрываем кнопку
+                loadMoreButton.style.display = "none"; 
             }
         }
     
@@ -160,15 +160,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 questions.forEach((question, index) => {
                     const content = question.querySelector(".questions__content");
                     if (index >= maxVisible) {
-                        // Закрываем открытый контент
+                        
                         content.classList.remove("open");
                         content.style.maxHeight = null;
         
-                        // Снимаем активные классы с айтема
+                       
                         question.classList.remove("active");
                         question.querySelector(".questions__item").classList.remove("active");
         
-                        // И только после этого скрываем сам блок
                         if (!content.classList.contains("open")) {
                             smoothHide(question);
                         }
@@ -183,40 +182,39 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         
         
-    
-        // Открытие/закрытие вопросов
         document.querySelectorAll(".questions__wrapper").forEach(wrapper => {
             const item = wrapper.querySelector(".questions__item");
             const content = wrapper.querySelector(".questions__content");
-    
+        
             item.addEventListener("click", () => {
                 const isActive = wrapper.classList.contains("active");
-
-                console.log('click')
-    
+        
                 document.querySelectorAll(".questions__wrapper").forEach(w => {
                     w.classList.remove("active");
                     w.querySelector(".questions__item").classList.remove("active");
                     w.querySelector(".questions__content").classList.remove("open");
                     w.querySelector(".questions__content").style.maxHeight = null;
                 });
-    
+        
                 if (!isActive) {
                     wrapper.classList.add("active");
                     item.classList.add("active");
                     content.classList.add("open");
+        
                     let contentHeight = content.scrollHeight;
-                    
+        
                     if (window.innerWidth < 530) {
-                        contentHeight += 40; // добавляем запас
+                        contentHeight += 40; 
+                    } else {
+                        contentHeight += 26; 
                     }
-                
+        
                     content.style.maxHeight = contentHeight + "px";
                 }
             });
         });
+        
     
-        // Перепроверять при ресайзе
         window.addEventListener("resize", applyMobileQuestionsLogic);
     
     
@@ -737,12 +735,31 @@ servicesMobileButton.addEventListener('click', function () {
         servicesMobileButton.textContent = 'Скрыть';
     } else {
         servicesIcons.style.transition = 'max-height 0.2s ease-in-out';
-        servicesIcons.style.maxHeight = '306px'; // исходная высота
+        servicesIcons.style.maxHeight = '306px'; 
         servicesMobileButton.textContent = 'Показать больше';
     }
 
     isServicesExpanded = !isServicesExpanded;
 });
+
+/* Links animations */
+
+document.querySelectorAll('.bottom__menu__link, .header__mob__menu__item').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault(); 
+
+        const targetId = this.getAttribute('href').substring(1); 
+        const targetElement = document.getElementById(targetId); 
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 20, 
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
 
 
 });
